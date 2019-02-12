@@ -46,7 +46,7 @@ const renderHTML = (pageName, pages, page) => {
     <html>
         <head>
             <link rel='stylesheet' type='text/css'href='https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css'>
-            <title> Acme Web : ${page.title} </title>
+            <title> Acme Web : ${pageName} </title>
             <style>
                 body {
                     background-color: #1f2833;
