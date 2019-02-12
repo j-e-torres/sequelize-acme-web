@@ -1,14 +1,6 @@
 const Sequelize = require('sequelize');
 const connect = new Sequelize('postgres://localhost/sequelacmeweb2')
 
-//route helpers
-// const getPages = () => {
-//     Page.findAll()
-//         .then( pages => {
-//             req.pages = pages;
-//         })
-// }
-
 //models
 const Content = connect.define('content', {
     title: { type: Sequelize.STRING, allowNull: false },
@@ -19,7 +11,6 @@ const Page = connect.define('page', {
     name: { type: Sequelize.STRING, allowNull: false }
 });
 
-// connect.sync({ force: true })
 const seedDB = async () => {
     Page.hasMany(Content);
     Content.belongsTo(Page);
@@ -65,6 +56,5 @@ const seedDB = async () => {
 
 module.exports = {
     Models: {Content, Page},
-    seedDB,
-    // getPages
+    seedDB
 }

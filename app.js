@@ -3,9 +3,8 @@ const app = express();
 
 const db = require('./db.js');
 const { Content, Page } = db.Models;
-const PORT = process.env.PORT || 3002;
 
-db.seedDB();
+module.exports = app;
 
 const renderNav = (pages, page) => {
     return `
@@ -50,17 +49,18 @@ const renderHTML = (pageName, pages, page) => {
             <title> Acme Web : ${page.title} </title>
             <style>
                 body {
-                    background-color: #0b0c10;
-
+                    background-color: #1f2833;
                     color: #66fcf1;
                 }
+                
+                h1 {color: #d1e8e2;}
 
-                .nav nav-tabs > li {
+                .nav-item > a {
                     color: #45a293;
                 }
 
                 .list-group > li {
-                    background-color: #1f2833;
+                    background-color: #2c3531;
                 }
             </style>
         </head>
@@ -109,9 +109,3 @@ app.get('/pages/:id', (req, res, next) => {
         // .then(page => res.send((renderHTML(req.pages, page))))
         .catch(next);
 });
-
-
-app.listen(PORT, () => {
-    console.log(`Listening to ${PORT} and db is seeded`);
-})
-
